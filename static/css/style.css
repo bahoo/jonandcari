@@ -1,0 +1,63 @@
+/* basic elements */
+body {
+    background-color: #1360ac;
+    background-image: url(../img/ferry-doodle.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Oleo Script", script;
+}
+
+h1{
+    font-size: 4em;
+    margin: 0;
+    font-family: "Fredoka One", script;
+    text-shadow: 0px 0px 20px #105485;
+    font-weight: normal;
+}
+
+h1 b{
+    font-size: 1.5em;
+    position: relative;
+    top: 0.15em;
+    font-weight: normal;
+    color: #d73023;
+    z-index: -1;
+}
+
+h2{
+    letter-spacing: -1px;
+}
+
+h2 b{
+    color: #eeb649;
+    font-style: italic;
+}
+
+.the-skinny, .more-to-come{
+    color: #b1f480;
+}
+
+.more-to-come{
+    font-size: 0.875em;
+}
+
+/* layout magic. */
+.front-and-center{
+    text-align: center;
+    min-width: 500px;
+    width: 60%;
+    margin: 25% auto 0;
+    color: #fff;
+}
+
+@media screen and (max-width: 480px){
+    h1{
+        font-size: 2em;
+    }
+    .front-and-center{
+        min-width: 0;
+    }
+}
