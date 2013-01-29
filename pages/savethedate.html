@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+    
+{% block content %}
+	<header>
+		<h4>J <span class="hearts">&hearts;</span> C</h4>
+	</header>
+
+	<div class="the-lowdown">
+
+		<p>So, we're getting married and</p>
+		<h1>YOU'RE INVITED!</h1>
+
+		<p>Full invites to follow but mark your calendars, people!<br />
+		<a href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text=Jon and Cari's Wedding&amp;dates=20130629/20130629&amp;details=We're getting married! http://jonandcari.com/&amp;location=Fay Bainbridge State Park,15446 Sunrise Drive Northeast, Bainbridge Island, WA 98110" target="_blank">Add to your Google Calendar</a> or <a href="{{ STATIC_URL }}/jon_and_caris_wedding.ics">download in iCal (.ics)</a></li>
+		</ul>
+
+		<h3>&mdash; The Basics &mdash;</h3>
+
+		<p>It's happening on <b>Saturday, June 29th, 2013</b> <span class="r">at <b><a href="https://maps.google.com/maps?q=Fay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA&hl=en&sll=47.272986,-120.882277&sspn=3.764354,7.56958&oq=fay+&hq=Fay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA&t=m&z=16">Fay Bainbridge State Park</a></b><br /></span> on Bainbridge Island, just outside of Seattle, WA.</p>
+
+		<div class="maps">
+
+			<!-- Real close. -->
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center=47.70299,-122.508173&amp;zoom=15&amp;format=png&amp;sensor=false&amp;size=640x250&amp;maptype=roadmap&amp;markers=color:red%7CFay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA" class="real-close" />
+
+			<!-- Seattle -->
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center=47.65299,-122.425173&amp;zoom=10&amp;format=png&amp;sensor=false&amp;size=310x170&amp;maptype=roadmap&amp;markers=color:red%7CFay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA" class="seattle" />
+
+			<!-- National -->
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center=38.548165,-100.195312&amp;zoom=2&amp;format=png&amp;sensor=false&amp;size=310x170&amp;maptype=roadmap&amp;markers=color:red%7CFay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA" class="national" />
+
+		</div>
+
+		<h3>&mdash; Travel / Info for Out of Town Folks &mdash;</h3>
+		<ol>
+			<li>Our wedding is on Bainbridge Island, which is <a href="http://www.wsdot.com/ferries/schedule/ScheduleDetailByRoute.aspx?route=sea-bi">a half-hour ferry ride from downtown Seattle</a>.</li>
+			<li>Seattle is one heck of a city. There's tons to see and do both in the city and the surrounding area, and you could easily parlay your visit into a vacation. <a href="mailto:jon.plus.cari@gmail.com">Hit us up</a> and tell us what you like to do, and we'll be happy to give our recommendations.</li>
+			<li>Bainbridge is lovely and quiet and a bit more laid back, which may or may not be the trip you're after :) we'll have plenty of fun happening at the wedding, but you might weigh your choices and consider staying downtown if you want to take in more of Seattle's nightlife.</li>
+		</ol>
+
+		<h3>&mdash; Hotel Options on Bainbridge &mdash;</h3>
+		<p>There's probably a dozen or so all said and done, but here's three that looked good:</p>
+		<ul class="hotels">
+			<li class="thumbs-up"><a href="http://book.bestwestern.com/bestwestern/US/WA/Bainbridge-Island-hotels/BEST-WESTERN-PLUS-Bainbridge-Island-Suites/Hotel-Overview.do?propertyCode=48165&amp;disablenav=false&amp;sob=C48">Best Western</a> &mdash; perhaps the only chain hotel on the island. Centrally located so it's close enough to everything.</li>
+			<li class="thumbs-up"><a href="http://www.islandcountryinn.com/index.html">Island Country Inn</a> &mdash; looks a little more local. Centrally located. Has a pool!</li>
+			<li class="pinky-up"><a href="http://www.theeagleharborinn.com/">Eagle Harbor Inn</a> &mdash; townhomes and suites overlooking Eagle Harbor; killer views of the marina and Seattle's skyline. Located in Winslow ('downtown' Bainbridge) you'll be front and center for all the good restaurants, cafes and whatnot.</li>
+		</ul>
+
+		<p>More info to come! Start sizing up your flight and we'll update this as we hash out more.</p>
+
+		<p>Questions always welcome: <a href="mailto:jon.plus.cari@gmail.com">jon.plus.cari@gmail.com</a></p>
+
+	</div>
+
+{% endblock %}
