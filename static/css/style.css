@@ -7,6 +7,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-attachment: fixed;
     font-family: "Oleo Script", script;
 }
 
@@ -14,8 +15,11 @@ h1{
     font-size: 4em;
     margin: 0;
     font-family: "Fredoka One", script;
-    text-shadow: 0px 0px 20px #105485;
     font-weight: normal;
+}
+
+.hearts, h1 b{
+    color: #d73023;
 }
 
 h1 b{
@@ -23,7 +27,6 @@ h1 b{
     position: relative;
     top: 0.15em;
     font-weight: normal;
-    color: #d73023;
     z-index: -1;
 }
 
@@ -36,6 +39,14 @@ h2 b{
     font-style: italic;
 }
 
+h3{
+    margin-top: 2em;
+}
+
+.front-and-center h1{
+    text-shadow: 0px 0px 20px #105485;
+}
+
 .the-skinny, .more-to-come{
     color: #b1f480;
 }
@@ -45,12 +56,60 @@ h2 b{
 }
 
 /* layout magic. */
-.front-and-center{
+.front-and-center,
+header,
+.the-lowdown{
     text-align: center;
     min-width: 500px;
-    width: 60%;
+    margin: 10px auto;
+}
+
+.front-and-center{
     margin: 25% auto 0;
     color: #fff;
+}
+
+.the-lowdown{
+    background: #fff;
+    background: rgba(255,255,255,0.75);
+    color: #333;
+    padding: 25px 25px 35px;
+    width: 690px;
+}
+
+.maps{
+    width: 660px;
+    margin: 0 auto;
+    clear: both;
+    text-align: center;
+}
+
+.maps img{
+    margin: 10px;
+}
+
+.maps .seattle,
+.maps .national{
+    float: left;
+    width: 310px;
+}
+
+.maps:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ol, ul{
+    text-align: left;
+}
+
+ol, ul, p{
+    font-size: 1.125em;
+}
+
+li{
+    margin-bottom: 0.5em;
 }
 
 @media screen and (max-width: 480px){
@@ -60,4 +119,28 @@ h2 b{
     .front-and-center{
         min-width: 0;
     }
+    .front-and-center,
+    header,
+    .the-lowdown,
+    .maps{
+        width: auto;
+        min-width: 0;
+    }
+
+    .maps img{
+        max-width: 100%;
+        width: auto !important;
+        margin: 0 auto 20px;
+        float: none !important;
+        display: block;
+    }
+
+    .r{
+        display: block;
+    }
+
+    .r br{
+        display: none;
+    }
+
 }
