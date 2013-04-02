@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+    
+{% block content %}
+	<header>
+		<h4>J <span class="hearts">&hearts;</span> C</h4>
+	</header>
+
+	<div class="the-lowdown">
+
+		<p>You probably <a href="{% url "save_the_date" %}">already heard</a>, but</p>
+		<h2>Jon and Cari are tying the knot<br /> and we're hoping YOU will come celebrate with us.</h2>
+
+		<p>Fay Bainbridge Park<br />
+			Bainbridge Island, WA 98110</p>
+		<p>June 29th, 2013 at 5 o'clock.</p>
+		<p>A brief ceremony followed by a lengthy party. Booze, dancing, what have you.</p>
+
+		<hr />
+
+		<h2>So, what say you. Are you in?</h2>
+
+		<ul class="attending-yn">
+			{{ rsvp_form.is_attending.0 }}
+			{{ rsvp_form.is_attending.1 }}
+		</ul>
+
+		<div id="attending-yes" style="display: none;">
+			<h1>MOST EXCELLENT!</h1>
+			<h2>We knew we could count on you.</h2>
+
+			<p>Anybody coming with? +1's?
+				<label for="addl-attendees-yes"><input type="radio" name="addl-attendees" value="yes" id="addl-attendees-yes" />Yep</label>
+				<label for="addl-attendees-no"><input type="radio" name="addl-attendees" value="no" id="addl-attendees-no" />Nope</label></p>
+
+			<ul class="additional-attendees">
+				<li><label for="name_1">Name:</label> <input type="text" name="name1" id="name_1" /></label>
+					<label for="over_21_1"><input type="checkbox" name="over_21_1" id="over_21_1" />Over 21?</label></li>
+				<li><a href="#" class="add-another">Add another</a></li>
+
+		</div>
+
+		<div id="attending-no" style="display: none;">
+			<h1>AWW... BOO. :(</h1>
+			<p>Well, we're sad, and you'll be missed &mdash; but we promise not to hold a grudge.</p>
+		</div>
+
+
+
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+APP.rsvp.init();
+</script>
+{% endblock %}
