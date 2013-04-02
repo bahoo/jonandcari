@@ -112,6 +112,19 @@ li{
     margin-bottom: 0.5em;
 }
 
+/* RSVP-specific */
+
+.attending-yn{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+.attending-yn li{
+    display: inline;
+    padding: 0 1em;
+}
+
 @media screen and (max-width: 480px){
     h1{
         font-size: 2em;
