@@ -7,42 +7,89 @@
 
 	<div class="the-lowdown">
 
-		<p>You probably <a href="{% url "save_the_date" %}">already heard</a>, but</p>
-		<h2>Jon and Cari are tying the knot<br /> and we're hoping YOU will come celebrate with us.</h2>
+		{% if submitted %}
+			<div class="note">OK! Your RSVP has been saved :)</div>
+		{% endif %}
 
-		<p>Fay Bainbridge Park<br />
-			Bainbridge Island, WA 98110</p>
-		<p>June 29th, 2013 at 5 o'clock.</p>
-		<p>A brief ceremony followed by a lengthy party. Booze, dancing, what have you.</p>
+		<p>You probably <a href="{% url "save_the_date" %}">already heard</a>, but</p>
+		<h2>Jon and Cari <br class="m" />are tying the knot</h2>
+
+		<p>&hellip; and we're hoping that<br />YOU will come celebrate with us.</p>
+
+		<div class="map-wrapper">
+			<a href="http://maps.google.com/maps?q=Fay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA"><img src="http://maps.googleapis.com/maps/api/staticmap?center=47.65899,-122.408173&amp;zoom=11&amp;format=png&amp;sensor=false&amp;size=640x275&amp;maptype=roadmap&amp;markers=color:red%7CFay+Bainbridge+State+Park,+Sunrise+Drive+Northeast,+Bainbridge+Island,+WA" class="map-link" /></a>
+		</div>
+
+		<div class="deets">
+
+			<div class="blurb location">
+				<address>Fay Bainbridge Park<br />
+					Bainbridge Island, WA</address>
+			</div>
+
+			<div class="blurb date">
+				<p>June 29th, 2013<br />
+					3 o'clock</p>
+			</div>
+
+		</div>
+
+		<p class="clear">A brief ceremony followed by a lengthy party. Dinner, booze, dancing, and a few surprises.</p>
 
 		<hr />
 
-		<h2>So, what say you. Are you in?</h2>
+		{% if already_rsvped %}
+			<p class="note">Just a heads up: we already received your response (You said {{ rsvp_form.instance.get_is_attending_display }}).<br />
+			Use the form below if you need to update your RSVP!</p>
+		{% endif %}
 
-		<ul class="attending-yn">
-			{{ rsvp_form.is_attending.0 }}
-			{{ rsvp_form.is_attending.1 }}
-		</ul>
+		<h2>So, are you in?</h2>
 
-		<div id="attending-yes" style="display: none;">
+		<div class="attending-yn">
+			<a href="#yes" class="big-button yay {% if rsvp_form.instance.is_attending %}clicked{% endif %}">Yes!</a>
+			<a href="#no" class="big-button boo {% if already_rsvped and not rsvp_form.instance.is_attending %}clicked{% endif %}">No.</a>
+		</div>
+
+		<form id="attending-yes" {% if not already_rsvped or already_rsvped and not rsvp_form.instance.is_attending %}style="display: none;"{% endif %} action="" method="post">
+			{% csrf_token %}
+			<input type="hidden" name="is_attending" value="True" /> 
 			<h1>MOST EXCELLENT!</h1>
 			<h2>We knew we could count on you.</h2>
+			<div class="fieldset">
+				<div class="field">
+					<p>How many in your party?<br />
+						{{ rsvp_form.count }}<br />
+					<span class="hint">(include yourself, so '1' if you're solo)</span></p>
+				</div>
 
-			<p>Anybody coming with? +1's?
-				<label for="addl-attendees-yes"><input type="radio" name="addl-attendees" value="yes" id="addl-attendees-yes" />Yep</label>
-				<label for="addl-attendees-no"><input type="radio" name="addl-attendees" value="no" id="addl-attendees-no" />Nope</label></p>
+				<div class="field">
+					<p>Wherebouts are you traveling from?<br />
+						{{ rsvp_form.location }}</p>
+				</div>
+			</div>
 
-			<ul class="additional-attendees">
-				<li><label for="name_1">Name:</label> <input type="text" name="name1" id="name_1" /></label>
-					<label for="over_21_1"><input type="checkbox" name="over_21_1" id="over_21_1" />Over 21?</label></li>
-				<li><a href="#" class="add-another">Add another</a></li>
+			<p class="clear">Lastly, any messages and/or questions for us? Fire away:</p>
+			{{ rsvp_form.message }}
 
-		</div>
+			<p>Hit 'Submit' and we'll see you there!</p>
 
-		<div id="attending-no" style="display: none;">
+			<button type="submit" class="big-button">Submit</button>
+		</form>
+
+		<form id="attending-no" {% if not already_rsvped or already_rsvped and rsvp_form.instance.is_attending %}style="display: none;"{% endif %}action="" method="post">
+			{% csrf_token %}
+			<input type="hidden" name="is_attending" value="False" />
 			<h1>AWW... BOO. :(</h1>
-			<p>Well, we're sad, and you'll be missed &mdash; but we promise not to hold a grudge.</p>
-		</div>
+			<p>Well, shoot. We're sad to hear this, and you'll be missed &mdash; but we promise not to hold a grudge.</p>
+
+			<p>Add a message if you'd like (entirely optional; you don't owe us jack).</p>
+
+			{{ rsvp_form.message }}
+
+			<p>Hit submit and we'll just see you when we see you!</p>
+
+			<button type="submit" class="big-button">Submit</button>
+		</form>
 
 
 
@@ -52,6 +99,7 @@
 
 {% block scripts %}
 <script>
+APP.rsvp.ip = '24.19.107.104';
 APP.rsvp.init();
 </script>
 {% endblock %}
