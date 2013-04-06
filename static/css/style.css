@@ -74,7 +74,8 @@ header,
     background: rgba(255,255,255,0.75);
     color: #333;
     padding: 25px 25px 35px;
-    width: 690px;
+    width: 672px;
+    margin-bottom: 80px;
 }
 
 .maps{
@@ -114,15 +115,107 @@ li{
 
 /* RSVP-specific */
 
-.attending-yn{
-    list-style: none;
-    text-align: center;
-    padding: 0;
+.map-wrapper{
+    padding: 1em;
+    background: #fff;
 }
 
-.attending-yn li{
-    display: inline;
-    padding: 0 1em;
+.map-wrapper img{
+    display: block;
+    max-width: 100%;
+}
+
+.deets{
+    margin-top: 20px;
+}
+
+.blurb{
+    float: left;
+    width: 38.5%;
+    text-align: left;
+    padding: 20px 0 20px 63px;
+    min-width: 191px;
+    background: #fff no-repeat 0 20px;
+    margin: 0 0 20px;
+}
+
+.blurb.location{
+    background-image: url(/static/img/google-mark.png);
+}
+
+.blurb.date{
+    float: right;
+    background-image: url(/static/img/clock.png);
+}
+
+
+.blurb address,
+.blurb p{
+    border-left: 1px #ccc solid;
+    padding-left: 20px;
+    margin: 0;
+    font-size: 1em;
+}
+
+.attending-yn{
+    margin-bottom: 40px;
+}
+
+.big-button{
+    font-size: 3em;
+    margin: 0 0.5em;
+    text-decoration: none;
+    border: 2px #777 solid;
+    border-radius: 10px;
+    color: #333;
+    padding: 0.25em 0.5em;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    display: inline-block;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.yay.clicked{
+    background: #34e21c;
+    background: rgba(52,226,28,0.9);
+}
+
+
+.boo.clicked{
+    background: #e2341c;
+    background: rgba(226,52,28,0.9);
+}
+
+.clear{
+    clear: both;
+}
+
+.m{
+    display: none;
+}
+
+hr{
+    border: 2px #555 solid;
+}
+
+.fieldset .field{
+    float: left;
+    width: 50%;
+}
+
+input[type="text"]{
+    font-size: 1.125em;
+    padding: 3px;
+}
+
+.hint{
+    font-size: 0.875em;;
+}
+
+.note{
+    padding: 0.5em 0;
+    background: #ecf28e;
 }
 
 @media screen and (max-width: 480px){
@@ -154,6 +247,19 @@ li{
 
     .r br{
         display: none;
+    }
+
+    .m{
+        display: block;
+    }
+
+    .attending-yn .big-button{
+        font-size: 2em;
+    }
+
+    .fieldset .field{
+        float: none;
+        width: auto;
     }
 
 }
