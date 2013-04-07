@@ -8,7 +8,7 @@
 	<div class="the-lowdown">
 
 		{% if submitted %}
-			<div class="note">OK! Your RSVP has been saved :)</div>
+			<div class="note">Sweet! Your RSVP has been saved :)</div>
 		{% endif %}
 
 		<p>You probably <a href="{% url "save_the_date" %}">already heard</a>, but</p>
@@ -55,18 +55,16 @@
 			<input type="hidden" name="is_attending" value="True" /> 
 			<h1>MOST EXCELLENT!</h1>
 			<h2>We knew we could count on you.</h2>
-			<div class="fieldset">
-				<div class="field">
-					<p>How many in your party?<br />
-						{{ rsvp_form.count }}<br />
-					<span class="hint">(include yourself, so '1' if you're solo)</span></p>
-				</div>
+			
+			<p>How many in your party? {{ rsvp_form.count }}<br />
+			<span class="hint">(include yourself, so '1' if you're solo)</span></p>
 
-				<div class="field">
-					<p>Wherebouts are you traveling from?<br />
-						{{ rsvp_form.location }}</p>
-				</div>
+			<div class="attendees" {% if rsvp_form.instance.count < 2 %}style="display: none;"{% endif %}>
+				<p>Can you please list out the names of who's coming with?</p>
+				{{ rsvp_form.attendees }}<br />
+				<span class="hint">Super helpful for de-duping the invite list !</span>
 			</div>
+
 
 			<p class="clear">Lastly, any messages and/or questions for us? Fire away:</p>
 			{{ rsvp_form.message }}
@@ -82,7 +80,7 @@
 			<h1>AWW... BOO. :(</h1>
 			<p>Well, shoot. We're sad to hear this, and you'll be missed &mdash; but we promise not to hold a grudge.</p>
 
-			<p>Add a message if you'd like (entirely optional; you don't owe us jack).</p>
+			<p>Add a message if you'd like (entirely optional, but we do love fan mail).</p>
 
 			{{ rsvp_form.message }}
 

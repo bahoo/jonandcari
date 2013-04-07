@@ -25,6 +25,22 @@ var APP = (function(){
 					if(typeof self.rsvp.is_attending !== 'undefined'){
 						$('a[href="#' + self.rsvp.is_attending + '"]').click();
 					}
+
+					$('#id_count').on('blur', function(){
+						var el = $(this);
+						if(el.val() > 1){
+							$('.attendees').slideDown(200, function(){
+								var el = $(this).find('#id_attendees');
+								el.focus();
+								// set cursor to be at the end of the text already entered.
+								// http://stackoverflow.com/a/10576409/412290
+								var textarea = el.get(0);
+								textarea.selectionStart = textarea.selectionEnd = textarea.value.length;
+							});
+						} else {
+							$('.attendees').slideUp();
+						}
+					});
 				}
 			}
 
