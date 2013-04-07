@@ -13,7 +13,10 @@ def save_the_date(request):
 
 
 def rsvp(request, key):
-    rsvp = Rsvp.objects.get(key=key)
+    try:
+        rsvp = Rsvp.objects.get(key=key)
+    except:
+        return render(request, 'rsvp_noroute.html')
     rsvp_form = RsvpForm(request.POST or None, instance=rsvp)
     submitted = False
     if request.POST:
