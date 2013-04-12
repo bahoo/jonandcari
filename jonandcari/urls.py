@@ -7,7 +7,11 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'rsvp.views.index', name='index'),
     url(r'^savethedate\.html$', 'rsvp.views.save_the_date', name='save_the_date'),
-    url(r'^rsvp/(?P<key>\w+)$', 'rsvp.views.rsvp', name='rsvp'),
-    url(r'^rsvp/$', 'rsvp.views.rsvp', name='rsvp_noroute', kwargs={'key': None}),
+    url(r'^(?P<destination>(rsvp|secrethandshake))(?:\/)(?P<key>\w+)$', 'rsvp.views.secret_handshake', name='secret_handshake'),
+    url(r'^logistics$', 'rsvp.views.logistics', name='logistics'),
+    url(r'^ceremony$', 'rsvp.views.ceremony', name='ceremony'),
+    url(r'^rsvp$', 'rsvp.views.rsvp', name='rsvp'),
+
+    url(r'^lost$', 'rsvp.views.no_route', name='no_route'),
     url(r'^admin/', include(admin.site.urls)),
 )
