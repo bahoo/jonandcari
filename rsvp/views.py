@@ -1,7 +1,10 @@
 # Create your views here.
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from functools import wraps
 from .models import Rsvp
 from .forms import RsvpForm
+from django.core.urlresolvers import reverse
 
 
 def index(request):
@@ -12,11 +15,45 @@ def save_the_date(request):
     return render(request, 'savethedate.html')
 
 
-def rsvp(request, key):
+def no_route(request):
+    render(request, 'rsvp_noroute.html')
+
+
+def valid_rsvp_required(method):
+    @wraps(method)
+    def wrapper(request, *args, **kwargs):
+        # maybe we already have this shit.
+        if not hasattr(request, 'rsvp'):
+            # first peep the session.
+            key = request.session.get('key', '')
+            if not key:
+                # dude we can't help you.
+                return HttpResponseRedirect(reverse('index'))
+            try:
+                rsvp = Rsvp.objects.get(key=key)
+            except:
+                return HttpResponseRedirect(reverse('no_route'))
+            # if we're still here then the above didn't bomb and the key is legit.
+            request.rsvp = rsvp
+            return method(request, *args, **kwargs)
+    return wrapper
+
+
+def secret_handshake(request, key, destination=None):
+    if destination == 'secrethandshake':
+        destination = 'rsvp'
     try:
-        rsvp = Rsvp.objects.get(key=key)
+        Rsvp.objects.get(key=key)
     except:
-        return render(request, 'rsvp_noroute.html')
+        return HttpResponseRedirect(reverse('no_route'))
+    # if we're still here, then the key is valid.
+    request.session['key'] = key
+    return HttpResponseRedirect(reverse(destination or 'index'))
+
+
+@valid_rsvp_required
+def rsvp(request):
+    rsvp = request.rsvp
     rsvp_form = RsvpForm(request.POST or None, instance=rsvp)
     submitted = False
     if request.POST:
@@ -27,3 +64,11 @@ def rsvp(request, key):
             print rsvp_form.errors
     already_rsvped = (rsvp.is_attending is not None)
     return render(request, 'rsvp.html', {'rsvp': rsvp, 'rsvp_form': rsvp_form, 'submitted': submitted, 'already_rsvped': already_rsvped})
+
+@valid_rsvp_required
+def ceremony(request):
+    return render(request, 'ceremony.html', {'rsvp': request.rsvp})
+
+@valid_rsvp_required
+def logistics(request):
+    return render(request, 'logistics.html', {'rsvp': request.rsvp})

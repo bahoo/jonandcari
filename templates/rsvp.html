@@ -1,11 +1,6 @@
-{% extends "base.html" %}
+{% extends "authed.html" %}
     
 {% block content %}
-	<header>
-		<h4>J <span class="hearts">&hearts;</span> C</h4>
-	</header>
-
-	<div class="the-lowdown">
 
 		{% if submitted %}
 			<div class="note">Sweet! Your RSVP has been saved :)</div>
@@ -28,8 +23,8 @@
 			</div>
 
 			<div class="blurb date">
-				<p>June 29th, 2013<br />
-					3 o'clock</p>
+				<p>June 29th, 2013 at 3 pm-ish? TBD<br />
+					(oh yeah like you're busy that day)</p>
 			</div>
 
 		</div>
@@ -88,10 +83,6 @@
 
 			<button type="submit" class="big-button">Submit</button>
 		</form>
-
-
-
-	</div>
 
 {% endblock %}
 
