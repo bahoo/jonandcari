@@ -65,10 +65,7 @@ def rsvp(request):
     already_rsvped = (rsvp.is_attending is not None)
     return render(request, 'rsvp.html', {'rsvp': rsvp, 'rsvp_form': rsvp_form, 'submitted': submitted, 'already_rsvped': already_rsvped})
 
-@valid_rsvp_required
-def ceremony(request):
-    return render(request, 'ceremony.html', {'rsvp': request.rsvp})
 
 @valid_rsvp_required
-def logistics(request):
-    return render(request, 'logistics.html', {'rsvp': request.rsvp})
+def template(request, destination):
+    return render(request, '%s.html' % destination, {'rsvp': request.rsvp})
