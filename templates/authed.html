@@ -2,18 +2,18 @@
 
 {% block page %}
 
-	<header>
-		<nav class="left-side">
-			<a href="/logistics">Logistics</a>
-		</nav>
+	<div class="header authed layout clearfix">
 		<h4>J <span class="hearts">&hearts;</span> C</h4>
-		<nav>
-			<a href="/ceremony">Ceremony</a>
-			<a href="/rsvp">RSVP</a>
-		</nav>
-	</header>
+		<ul class="nav">
+			<li><a href="/about">About</a></li>
+			<li><a href="/getting-here">Getting Here</a></li>
+			<li><a href="/wedding-party">Wedding Party</a></li>
+			<li><a href="/gifts">Gifts?</a></li>
+			<li><a href="/rsvp">RSVP</a></li>
+		</ul>
+	</div>
 
-	<div class="the-lowdown">
+	<div class="main layout">
 
 		{% block content %}
 		{% endblock %}
