@@ -136,12 +136,20 @@ ol, ul{
     list-style: none;
 }
 
-ol, ul, p{
+ol, ul, dl, p{
     font-size: 1.125em;
 }
 
 li{
     margin-bottom: 0.5em;
+}
+
+dt{
+    font-weight: bold;
+}
+
+dd{
+    margin: 0;
 }
 
 /* RSVP-specific */
@@ -269,6 +277,12 @@ input.count{
     font-size: 0.875em;
     width: 180px;
     margin: 0 0 2em 2em;
+}
+
+.party{
+    width:45%;
+    display:inline-block;
+    vertical-align: top;
 }
 
 @media screen and (max-width: 480px){
