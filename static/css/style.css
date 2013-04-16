@@ -281,9 +281,18 @@ input.count{
 }
 
 .party{
-    width:45%;
+    width: 49%;
     display:inline-block;
     vertical-align: top;
+    text-align: center;
+}
+
+.party em{
+    color: #666;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 0.75em;
+    margin-left: 0.5em;
 }
 
 @media screen and (max-width: 480px){
