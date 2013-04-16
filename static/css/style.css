@@ -102,9 +102,10 @@ h3{
     background: #fff;
     background: rgba(255,255,255,0.75);
     color: #333;
-    padding: 25px 25px 35px;
+    padding: 10px 25px 35px;
     margin-bottom: 80px;
     font-family: Georgia, serif;
+    border: 1px rgba(48,48,48,0.5) solid;
 }
 
 .maps{
@@ -137,7 +138,7 @@ ol, ul{
 }
 
 ol, ul, dl, p{
-    font-size: 1.125em;
+    font-size: 112.5%;
 }
 
 li{
