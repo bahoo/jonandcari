@@ -68,4 +68,4 @@ def rsvp(request):
 
 @valid_rsvp_required
 def template(request, destination):
-    return render(request, '%s.html' % destination, {'rsvp': request.rsvp})
+    return render(request, '%s.html' % destination, {'rsvp': request.rsvp, 'texty': True})
