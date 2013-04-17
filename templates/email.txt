@@ -1,13 +1,18 @@
-Hey there,
+Hello friends!
 
-Our wedding's coming up and it's time for a lot of you to start making plans.
+Our wedding's coming up and we know you've got plans to make (as do we).
 
-We're not really done with the site yet (perpetual work in progress...) but
-get in here:
+Cari and I put together a little site to help outline everything you need to get out here and celebrate with us.
+
+Click the link below to get in:
 
 http://jonandcari.com/secrethandshake/{{ rsvp.key }}
 
-Hope to see you there!
+Note this is YOUR personal link (tied to your RSVP response and any +1s you specify). Please get back to us by April 30th!
+
+Have a look around and let us know if you have any questions.
+
+We're super excited and we hope to see you there. :)
 
 <3
 
