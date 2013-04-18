@@ -1,4 +1,5 @@
 from django.db import models
+import re
 
 BOOLEAN_CHOICES = ((True, 'Yes'), (False, 'No'))
 
@@ -13,6 +14,11 @@ class Rsvp(models.Model):
     key = models.CharField(max_length=32, unique=False)
     count = models.IntegerField(default=1, null=True)
 
+    def plus_one_situation(self):
+        return self.count - 1
+
+    def get_attendees(self):
+        return re.split("(?:\\r)?\\n", self.attendees.strip())
+
     def __unicode__(self):
         return self.attendees.replace("\\n", ", ").rstrip(", ")
-
