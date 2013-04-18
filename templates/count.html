@@ -30,6 +30,14 @@
 			{% endfor %}
 		</ul>{% endif %}</li>
 	{% endfor %}
+	<p>{{ pct_reporting }} reporting.</p>
+
+	<h3>Not attending:</h3>
+	<ul>
+		{% for n in not_attending %}
+			<li>{{ n.name }}</li>
+		{% endfor %}
+	</ul>
 </ul>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
