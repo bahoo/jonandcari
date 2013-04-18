@@ -86,4 +86,5 @@ def template(request, destination):
 def count(request):
     attendees = Rsvp.objects.filter(is_attending=True)
     count = attendees.aggregate(Sum('count'))['count__sum']
-    return render(request, 'count.html', {'count': count, 'attendees': attendees})
+    maximum = Rsvp.objects.all().aggregate(Sum('count'))['count__sum']
+    return render(request, 'count.html', {'count': count, 'attendees': attendees, 'maximum': maximum})
