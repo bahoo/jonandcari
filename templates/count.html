@@ -7,17 +7,20 @@
 			font-family: Georgia;
 		}
 		h1{
-			font-size: 8em;
+			font-size: 5em;
 			margin: 0;
 		}
 		.extras{
 			display: none;
 		}
+		.possible{
+			color: #ccc;
+		}
 	</style>
 	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0;" />
 </head>
 <body>
-<h1 style="text-align: center;">{{ count }}</h1>
+<h1 style="text-align: center;">{{ count }}<span class="possible">/{{ maximum }}</span></h1>
 <ul class="attendees">
 	{% for a in attendees %}
 	<li>{{ a.name }} {% if a.count > 1 %}(+{{ a.plus_one_situation }})
