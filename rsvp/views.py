@@ -5,6 +5,8 @@ from functools import wraps
 from .models import Rsvp
 from .forms import RsvpForm
 from django.core.urlresolvers import reverse
+from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import Sum
 
 
 def index(request):
@@ -78,3 +80,10 @@ def rsvp(request):
 @valid_rsvp_required
 def template(request, destination):
     return render(request, '%s.html' % destination, {'rsvp': request.rsvp, 'texty': True})
+
+
+@staff_member_required
+def count(request):
+    attendees = Rsvp.objects.filter(is_attending=True)
+    count = attendees.aggregate(Sum('count'))['count__sum']
+    return render(request, 'count.html', {'count': count, 'attendees': attendees})

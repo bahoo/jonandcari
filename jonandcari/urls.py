@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^(?P<destination>(getting\-here|what-to-expect|wedding\-party|gifts|rsvp|secrethandshake))(?:\/)(?P<key>\w+)$', 'rsvp.views.secret_handshake', name='secret_handshake'),
     url(r'^(?P<destination>(getting\-here|what-to-expect|wedding\-party|gifts))$', 'rsvp.views.template', name='template'),
     url(r'^rsvp$', 'rsvp.views.rsvp', name='rsvp'),
+    url(r'^count$', 'rsvp.views.count', name='count'),
 
     url(r'^lost$', 'rsvp.views.no_route', name='no_route'),
     url(r'^admin/', include(admin.site.urls)),
