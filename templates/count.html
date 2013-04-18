@@ -33,8 +33,12 @@
 <script>
 	$(function(){
 		$('.attendees').on('click', '> li', function(){
-			$('.extras').slideUp();
-			$(this).find('.extras').slideDown();
+			var extras = $(this).find('.extras');
+			if(extras.length == 0 || extras.is(':visible')){
+				return;
+			}
+			$('.extras:visible').slideUp(300);
+			extras.slideDown(400);
 		});
 	});
 </script>
