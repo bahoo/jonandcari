@@ -8,6 +8,15 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
+    key = request.session.get('key', '')
+    if key:
+        try:
+            Rsvp.objects.get(key=key)
+            return HttpResponseRedirect(reverse('rsvp'))
+        except:
+            pass
+
+    # if we're still here then the above didn't bomb and the key is legit.
     return render(request, 'index.html')
 
 
