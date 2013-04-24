@@ -5,9 +5,20 @@ from functools import wraps
 from .models import Rsvp
 from .forms import RsvpForm
 from django.core.urlresolvers import reverse
+from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import Sum
 
 
 def index(request):
+    key = request.session.get('key', '')
+    if key:
+        try:
+            Rsvp.objects.get(key=key)
+            return HttpResponseRedirect(reverse('rsvp'))
+        except:
+            pass
+
+    # if we're still here then the above didn't bomb and the key is legit.
     return render(request, 'index.html')
 
 
@@ -69,3 +80,16 @@ def rsvp(request):
 @valid_rsvp_required
 def template(request, destination):
     return render(request, '%s.html' % destination, {'rsvp': request.rsvp, 'texty': True})
+
+
+@staff_member_required
+def count(request):
+    everyone = Rsvp.objects.all()
+    reporting = everyone.exclude(is_attending=None)
+    attendees = everyone.filter(is_attending=True)
+    not_attending = everyone.filter(is_attending=False)
+    possible = everyone.exclude(is_attending=False)
+    count = attendees.aggregate(Sum('count'))['count__sum']
+    maximum = possible.aggregate(Sum('count'))['count__sum']
+    pct_reporting = "{0:.0f}%".format(100 * float(reporting.count()) / float(everyone.count()))
+    return render(request, 'count.html', {'count': count, 'attendees': attendees, 'pct_reporting': pct_reporting, 'not_attending': not_attending, 'maximum': maximum})
