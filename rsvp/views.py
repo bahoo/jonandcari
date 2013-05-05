@@ -89,7 +89,8 @@ def count(request):
     attendees = everyone.filter(is_attending=True)
     not_attending = everyone.filter(is_attending=False)
     possible = everyone.exclude(is_attending=False)
+    not_yet_responded = everyone.filter(is_attending=None)
     count = attendees.aggregate(Sum('count'))['count__sum']
     maximum = possible.aggregate(Sum('count'))['count__sum']
     pct_reporting = "{0:.0f}%".format(100 * float(reporting.count()) / float(everyone.count()))
-    return render(request, 'count.html', {'count': count, 'attendees': attendees, 'pct_reporting': pct_reporting, 'not_attending': not_attending, 'maximum': maximum})
+    return render(request, 'count.html', {'count': count, 'attendees': attendees, 'pct_reporting': pct_reporting, 'not_attending': not_attending, 'maximum': maximum, 'not_yet_responded': not_yet_responded})
