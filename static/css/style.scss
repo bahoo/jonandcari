@@ -1,0 +1,141 @@
+$passport: #1e3b65;
+$passport_shadow: rgba(100, 93, 36, 0.5);
+$white: #fff;
+$heart: #e4573b;
+$body_background: #fbfaf3;
+$body_text: #4d433e;
+$gooooolllllld: #c4b326;
+$green: #35ac2f;
+
+$font_family_headline: "Oleo Script", cursive;
+$font_family_body: Georgia, serif;
+$font_size_body: 14px;
+
+$radius: 18px;
+$tilt: -2deg;
+$passport_scale_ratio: 0.5;
+
+*{
+	box-sizing: border-box;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+	font-family: $font_family_headline;
+	font-weight: normal;
+}
+
+body {
+	font-size: $font_size_body;
+	line-height: 1.35em;
+	font-family: $font_family_body; 
+	text-align: center;
+	color: $body_text;
+	background-color: $body_background;
+}
+
+/* passport guy. */
+.passport{
+	background-color: $passport;
+	color: $gooooolllllld;
+	width: 350px * $passport_scale_ratio;
+	height: 425px * $passport_scale_ratio;
+	padding: 20px * $passport_scale_ratio;
+	border-top-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	-webkit-transform: rotate($tilt);
+	transform: rotate($tilt);
+	box-shadow: 2px 2px 2px $white, 0px 0px 10px $passport_shadow;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 20px;
+}
+
+.passport .passport-title{
+	font-size: 1.25em * $passport_scale_ratio;
+	text-transform: uppercase;
+}
+
+.passport h2{
+	color: $white;
+	margin-top: 95px * $passport_scale_ratio;
+	font-size: 4em * $passport_scale_ratio;
+	position: relative;
+	z-index: 1;
+}
+
+.passport .heart{
+	color: $heart;
+	margin: 0 -27px * $passport_scale_ratio;
+	position: relative;
+	z-index: -1;
+	width: 2em;
+}
+
+.passport .estrellas{
+	font-size: 1.5em * $passport_scale_ratio;
+	margin-top: 2em * $passport_scale_ratio;
+}
+
+.passport .gold{
+	color: $gooooolllllld;
+	text-transform: uppercase;
+}
+
+.passport .footer-thing-idk{
+	margin-top: 10em * $passport_scale_ratio;
+	font-size: 1em * $passport_scale_ratio;
+}
+
+/* ok basic page layout stuffs. */
+.sidebar{
+	width: 215px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.main{
+	margin: 20px 20px 50px 235px;
+	text-align: left;
+	max-width: 60em;
+	line-height: 1.4em;
+}
+
+.main h2{
+	line-height: 1.4em;
+}
+
+.main p{
+}
+
+.the-scoop{
+	margin: 2em;
+}
+
+a{
+	color: $heart;
+	text-decoration: none;
+}
+
+img{
+	max-width: 100%;
+}
+
+figure{
+	margin: 20px;
+}
+
+figcaption{
+	font-style: italic;
+	clear: both;
+	padding-top: 0.5em;
+}
+
+img.halfsie{
+	float: left;
+	max-width: 50%;
+}
+
+.es{
+	font-style: italic;
+}
