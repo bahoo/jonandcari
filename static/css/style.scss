@@ -23,6 +23,7 @@ $passport_scale_ratio: 0.5;
 h1, h2, h3, h4, h5, h6{
 	font-family: $font_family_headline;
 	font-weight: normal;
+	line-height: 1.4em;
 }
 
 body {
@@ -57,7 +58,7 @@ body {
 
 .passport h2{
 	color: $white;
-	margin-top: 95px * $passport_scale_ratio;
+	margin-top: 85px * $passport_scale_ratio;
 	font-size: 4em * $passport_scale_ratio;
 	position: relative;
 	z-index: 1;
@@ -82,26 +83,20 @@ body {
 }
 
 .passport .footer-thing-idk{
-	margin-top: 10em * $passport_scale_ratio;
+	margin-top: 6em * $passport_scale_ratio;
 	font-size: 1em * $passport_scale_ratio;
 }
 
 /* ok basic page layout stuffs. */
 .sidebar{
 	width: 215px;
-	position: absolute;
-	left: 0;
-	top: 0;
+	float: left;
 }
 
 .main{
 	margin: 20px 20px 50px 235px;
 	text-align: left;
 	max-width: 60em;
-	line-height: 1.4em;
-}
-
-.main h2{
 	line-height: 1.4em;
 }
 
@@ -138,4 +133,16 @@ img.halfsie{
 
 .es{
 	font-style: italic;
+}
+
+@media screen and (max-width: 320px) {
+
+	.sidebar{
+		float: none;
+	}
+
+	.passport{
+		margin: 20px auto;
+	}
+
 }
