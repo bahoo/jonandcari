@@ -3,7 +3,11 @@
 {% block content %}
 
 <h2>{{ title }}</h2>
+<p>Written by {{ post.author }} on {{ post.date|date:"F j Y" }}</P>
 
 {% block body %}{% endblock %}
+
+<hr />
+<hr />
 
 {% endblock %}
