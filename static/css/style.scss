@@ -90,7 +90,9 @@ body {
 /* ok basic page layout stuffs. */
 .sidebar{
 	width: 215px;
-	float: left;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .main{
@@ -138,8 +140,8 @@ img.halfsie{
 @media screen and (max-width: 320px) {
 
 	.sidebar{
-		float: none;
 		width: 100%;
+		position: static;
 	}
 
 	.passport{
@@ -148,6 +150,11 @@ img.halfsie{
 
 	.main{
 		margin-left: 20px;
+	}
+
+	img.halfsie{
+		float: none;
+		max-width: 100%;
 	}
 
 }

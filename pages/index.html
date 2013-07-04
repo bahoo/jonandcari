@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<h1>Jon &amp; Cari's Very, Very Beta Travel Blog</h1>
+	<h1>Jon &amp; Cari's Super-Beta Spanish Travel Blog</h1>
 
 	{% for post in posts %}
-	<h2><a href='{{ ROOT_URL }}/{{ post.path }}'>{{ post.title }}</a>
+	<h2><a href="{{ ROOT_URL }}/{{ post.path }}">{{ post.title }}</a>
 		 &mdash; written by {{ post.author }} on {{ post.date|date:"F j Y" }}</h2>
-		{{ post.body|truncatewords_html:30}}
+		{{ post.body|truncatewords_html:45}} <a href="{{ ROOT_URL }}/{{ post.path }}">continue reading &rarr;</a>
 	<hr />
 	{% endfor %}
 

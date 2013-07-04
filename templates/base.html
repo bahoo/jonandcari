@@ -16,6 +16,11 @@
 </head>
 <body>
 
+	<div class="main">
+		{% block content %}
+		{% endblock %}
+	</div>
+
 	<div class="sidebar">
 		<div class="passport">
 			<p class="passport-title">Passport</p>
@@ -30,11 +35,6 @@
 				Madrid / Barcelona / Pamplona</p>
 			<p>This is a tiny travel blog of that journey. :D</p>
 		</div>
-	</div>
-
-	<div class="main">
-		{% block content %}
-		{% endblock %}
 	</div>
 
 </body>
