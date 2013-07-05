@@ -3,6 +3,13 @@ author: Jon
 date: 03-07-2013
 
 {% extends "post.html" %}
+
+{% block tips %}
+	<li>Buy a prepaid SIM card to use abroad if your phone is unlocked.</li>
+	<li>Be mindful of color-based metro systems in big cities. Jetlag can blur those hues quickly.</li>
+	<li>Order small plates. You can always order more, fatty.</li>
+{% endblock %}
+
 {% block body %}
 
 {% load markup %}
@@ -10,7 +17,7 @@ date: 03-07-2013
 
 We've been in Spain for about nine hours. We landed approximately 8am local time (and we're +1 GMT here, so that was about 11pm in Seattle, we think). So after getting almost no sleep on the plane (and getting up at 5:30am PT for said day of air travel meant little sleep the night before) we arrived in Spain physically wiped&hellip; but also surprisingly energetic.
 
-<figure>
+<figure class="up-too-high">
 	<img src="{{ STATIC_URL }}/img/leaving-MAD.jpg" />
 	<figcaption>The exhaused-but-upbeat newlyweds excited to be on Spanish soil.</figcaption>
 </figure>

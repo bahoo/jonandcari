@@ -3,7 +3,15 @@
 {% block content %}
 
 <h2>{{ title }}</h2>
-<p>Written by {{ author }} on {{ date|date:"F j Y" }}</P>
+<p>Written by {{ author }} on {{ date|date:"F j Y" }}</p>
+
+<div class="tips">
+	<h3>Lessons Learned, in a Nutshell:</h3>
+	<ul>
+	{% block tips %}{% endblock %}
+	</ul>
+</div>
+
 
 {% block body %}{% endblock %}
 

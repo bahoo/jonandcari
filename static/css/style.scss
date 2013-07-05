@@ -88,12 +88,7 @@ body {
 }
 
 /* ok basic page layout stuffs. */
-.sidebar{
-	width: 215px;
-	position: absolute;
-	left: 0;
-	top: 0;
-}
+
 
 .main{
 	margin: 20px 20px 50px 235px;
@@ -109,6 +104,20 @@ body {
 	margin: 2em;
 }
 
+.tips{
+	background: rgba(255,255,255,0.75);
+	padding: 1px 20px;
+	border-top: 1px solid $body_text;
+}
+
+.tips ul{
+	padding-left: 10px;
+}
+
+.tips li{
+	margin-bottom: 5px;
+}
+
 a{
 	color: $heart;
 	text-decoration: none;
@@ -120,6 +129,10 @@ img{
 
 figure{
 	margin: 20px;
+}
+
+.up-too-high{
+	float: left;
 }
 
 figcaption{
@@ -140,15 +153,11 @@ img.halfsie{
 .aeroplane{
 	text-align: center;
 	font-size: 1.5em;
-	margin: 2em 0;
+	margin: 1.5em 0 2.5em;
 }
 
-@media screen and (max-width: 320px) {
 
-	.sidebar{
-		width: 100%;
-		position: static;
-	}
+@media screen and (max-width: 480px) {
 
 	.passport{
 		margin: 20px auto;
@@ -163,4 +172,23 @@ img.halfsie{
 		max-width: 100%;
 	}
 
+}
+
+@media screen and (min-width: 480px){
+
+	.sidebar{
+		width: 215px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	
+}
+
+@media screen and (min-width: 768px){
+	.tips{
+		float: right;
+		width: 250px;
+		margin: -20px 0 0 20px;
+	}
 }
