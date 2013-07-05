@@ -6,7 +6,7 @@
 	{% for post in posts %}
 	<h2><a href="{{ ROOT_URL }}/{{ post.path }}">{{ post.title }}</a>
 		 &mdash; written by {{ post.author }} on {{ post.date|date:"F j Y" }}</h2>
-		{{ post.body|truncatewords_html:45}} <a href="{{ ROOT_URL }}/{{ post.path }}">continue reading &rarr;</a>
+		{{ post.body|truncatewords_html:60}} <a href="{{ ROOT_URL }}/{{ post.path }}">continue reading &rarr;</a>
 	<p class="aeroplane">&#9992;</p>
 	{% endfor %}
 
