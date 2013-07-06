@@ -17,4 +17,30 @@
 
 <p class="aeroplane">&#9992;</p>
 
+<p class="una-mas">¿ Una más, amigo ?</p>
+
+<ul class="navigate-posts group">
+	{% if nextPost %}
+	<a href="{{ SITE_ROOT }}/{{ nextPost.path }}">
+		<li class="next">
+			<b>&larr; Next</b>
+			<h3>{{ nextPost.title }}</h3>
+			{{ nextPost.body|truncatewords_html:25}} 
+			<p class="byline">{{ nextPost.date|date:"F j Y" }} / written by Jon</p>
+		</li>
+	</a>
+	{% endif %}
+
+	{% if prevPost %}
+	<a href="{{ SITE_ROOT }}/{{ prevPost.path }}"{% if not nextPost %} class="sans-next"{% endif %}>
+		<li class="prev">
+			<b>Previous &rarr;</b>
+			<h3>{{ prevPost.title }}</h3>
+			{{ prevPost.body|truncatewords_html:25}} 
+			<p class="byline">{{ prevPost.date|date:"F j Y" }} / written by Jon</p>
+		</li>
+	</a>
+	{% endif %}
+</ul>
+
 {% endblock %}
