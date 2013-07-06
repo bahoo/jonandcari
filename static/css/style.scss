@@ -100,6 +100,11 @@ body {
 .main p{
 }
 
+.main hr{
+	margin: 2em auto;
+	width: 80%;
+}
+
 .the-scoop{
 	margin: 2em;
 }
@@ -139,6 +144,19 @@ figcaption{
 	font-style: italic;
 	clear: both;
 	padding-top: 0.5em;
+}
+
+.to-the-side{
+	width: 225px;
+}
+
+.derecha{
+	float: right;
+	margin: 0 0 20px 20px;
+}
+
+.derecha figcaption{
+	clear: none;
 }
 
 img.halfsie{
