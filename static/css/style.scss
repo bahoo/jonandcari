@@ -6,6 +6,7 @@ $body_background: #fbfaf3;
 $body_text: #4d433e;
 $gooooolllllld: #c4b326;
 $green: #35ac2f;
+$white_shade: rgba(255,255,255,0.75);
 
 $font_family_headline: "Oleo Script", cursive;
 $font_family_body: Georgia, serif;
@@ -133,7 +134,7 @@ body {
 }
 
 .tips{
-	background: rgba(255,255,255,0.75);
+	background: $white_shade;
 	padding: 1px 20px;
 	border-top: 1px solid $body_text;
 }
@@ -201,6 +202,49 @@ img.halfsie{
 	clear: both;
 }
 
+.navigate-posts{
+	list-style: none;
+	padding: 0;
+	margin-bottom: 4em;
+	border-top: 1px solid $body_text;
+}
+
+.navigate-posts b{
+	display: block;
+	text-align: center
+}
+
+.navigate-posts a{
+	color: $body_text;
+	float: left;
+	width: 50%;
+	padding: 20px;
+}
+
+.navigate-posts a:hover{
+	background-color: $white_shade;
+}
+
+.navigate-posts a h3{
+	color: $heart;
+	font-size: 1.25em;
+}
+
+.sans-next{
+	margin-left: 50%;
+}
+
+.una-mas{
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.group:after{
+  content: "";
+  display: table;
+  clear: both;
+}
 
 @media screen and (max-width: 480px) {
 
@@ -215,6 +259,16 @@ img.halfsie{
 	img.halfsie{
 		float: none;
 		max-width: 100%;
+	}
+
+	.navigate-posts a{
+		float: none;
+		width: 100%;
+		display: block;
+	}
+
+	.navigate-posts .sans-next{
+		margin-left: 0;
 	}
 
 }
