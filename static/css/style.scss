@@ -64,6 +64,10 @@ body {
 	z-index: 1;
 }
 
+.passport a{
+	color: $white;
+}
+
 .passport .heart{
 	color: $heart;
 	margin: 0 -27px * $passport_scale_ratio;
@@ -87,6 +91,21 @@ body {
 	font-size: 1em * $passport_scale_ratio;
 }
 
+.passport.swiped{
+	background: none;
+	border: 4px $body_text dashed;
+	box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.passport.swiped h2{
+	color: transparent;
+}
+
+.passport p{
+	display: none;
+}
+
 /* ok basic page layout stuffs. */
 
 
@@ -107,6 +126,10 @@ body {
 
 .the-scoop{
 	margin: 2em;
+}
+
+.byline{
+	font-variant: small-caps;
 }
 
 .tips{
@@ -172,6 +195,10 @@ img.halfsie{
 	text-align: center;
 	font-size: 1.5em;
 	margin: 1.5em 0 2.5em;
+}
+
+.clear{
+	clear: both;
 }
 
 
