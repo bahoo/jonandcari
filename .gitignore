@@ -2,3 +2,4 @@
 .build
 *.pyc
 static/css/style.css
+*.sublime-*
