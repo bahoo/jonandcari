@@ -25,7 +25,7 @@
 		<li class="next">
 			<b>&larr; Next</b>
 			<h3>{{ nextPost.title }}</h3>
-			{{ nextPost.body|truncatewords_html:25}} 
+			{{ nextPost.body|striptags|truncatewords:25}} 
 			<p class="byline">{{ nextPost.date|date:"F j Y" }} / written by Jon</p>
 		</li>
 	</a>

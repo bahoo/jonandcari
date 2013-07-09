@@ -103,8 +103,10 @@ body {
 	color: transparent;
 }
 
-.passport p{
-	display: none;
+.passport.returned .passport-title em{
+	font-size: 1.25em;
+	display: block;
+	margin-bottom: -1.25em;
 }
 
 /* ok basic page layout stuffs. */
