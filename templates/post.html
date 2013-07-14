@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h2>{{ title }}</h2>
+<h1>{{ title }}</h1>
 <p class="byline">{{ date|date:"F j Y" }} / written by {{ author }}</p>
 
 <div class="tips">
@@ -36,7 +36,7 @@
 		<li class="prev">
 			<b>Previous &rarr;</b>
 			<h3>{{ prevPost.title }}</h3>
-			{{ prevPost.body|truncatewords_html:25}} 
+			{{ prevPost.body|striptags|truncatewords:25}} 
 			<p class="byline">{{ prevPost.date|date:"F j Y" }} / written by Jon</p>
 		</li>
 	</a>
